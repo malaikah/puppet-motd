@@ -1,5 +1,5 @@
-define motd::register($content="", $order=10) {
-  if $content == "" 
+define motd::register($content='', $order=10) {
+  if($content == '')
   {
     $body = $name
   }
@@ -8,8 +8,8 @@ define motd::register($content="", $order=10) {
     $body = $content
   }
 
-  concat::fragment{"motd_fragment_$name":
-    target        => "/etc/motd",
+  concat::fragment{"motd_fragment_${name}":
+    target  => '/etc/motd',
     content => "    -- $body\n"
   }
 }
