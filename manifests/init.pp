@@ -1,5 +1,6 @@
 class motd (
-  $motd = '/etc/motd'
+  $motd    = '/etc/motd',
+  $headers = false,
 ) {
 
   concat { $motd:
@@ -8,11 +9,14 @@ class motd (
     mode  => '0644',
   }
 
-  # Add base info
-  concat::fragment{'motd_header':
-    target  => $motd,
-    content => template('motd/header.erb'),
-    order   => 01,
+  # Add base info if necessary
+  if($headers)
+  {
+    concat::fragment{'motd_header':
+      target  => $motd,
+      content => template('motd/header.erb'),
+      order   => 01,
+    }
   }
 
 }

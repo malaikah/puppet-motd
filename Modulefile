@@ -1,5 +1,5 @@
 name    'alkivi-motd'
-version '0.0.1'
+version '0.0.2'
 source 'https://github.com/alkivi-sas/puppet-motd'
 author 'alkivi'
 license 'LGPLv3'

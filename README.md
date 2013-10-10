@@ -15,9 +15,13 @@ This will do the typical install, using /etc/motd
 
 ```puppet
 class { motd: 
-  motd => '/etc/my_motd_file',
+  motd    => '/etc/my_motd_file',
+  headers => true/false
+
 }
 ```
+
+headers parameter apply a custom template to the head of motd
 
 ### Register a module
 
