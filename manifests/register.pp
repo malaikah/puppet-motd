@@ -1,7 +1,7 @@
 define motd::register($content='', $order=10) {
   if($content == '')
   {
-    $body = $name
+    $body = "    -- ${name}\n"
   }
   else
   {
@@ -10,6 +10,6 @@ define motd::register($content='', $order=10) {
 
   concat::fragment{"motd_fragment_${name}":
     target  => $motd::motd,
-    content => "    -- $body\n"
+    content => $body,
   }
 }
