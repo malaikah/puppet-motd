@@ -14,7 +14,7 @@
 #  Defaults to '10'.
 #
 define motd::register(
-  $content='"    -- ${name}\n"', 
+  $content="    -- ${name}\n", 
   $order=10,
 ) {
 
