@@ -14,14 +14,15 @@
 #  Defaults to '10'.
 #
 define motd::register(
-  $content="    -- ${name}\n", 
-  $order=10,
+  $content = "    -- ${name}\n", 
+  $order = '10',
 ) {
 
   include ::motd
   concat::fragment{"motd_fragment_${name}":
     target  => $motd::motd,
     content => $content,
+    order   => $order,
   }
   
 }
